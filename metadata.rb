@@ -1,6 +1,6 @@
 name             'nginx-chef'
-maintainer       'YOUR_COMPANY_NAME'
-maintainer_email 'YOUR_EMAIL'
+maintainer       'Olsi Birbo'
+maintainer_email 'olsi.birbo@gmail.com'
 license          'All rights reserved'
 description      'Installs/Configures nginx'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
