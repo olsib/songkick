@@ -2,11 +2,11 @@
 driver:
   name: ec2
   aws_ssh_key_id: ubuntu-chef
-  security_group_ids: ["sg-3114de56"]
+  security_group_ids: ["your sec group"]
   region: us-east-1
   availability_zone: us-east-1b
   require_chef_omnibus: true
-  subnet_id: subnet-1b5d5730
+  subnet_id: <your subnet>
 #  iam_profile_name: chef-client
   instance_type: t2.micro
   associate_public_ip: true
