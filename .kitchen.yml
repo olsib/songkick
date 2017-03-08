@@ -1,0 +1,37 @@
+---
+driver:
+  name: ec2
+  aws_ssh_key_id: ubuntu-chef
+  security_group_ids: ["sg-3114de56"]
+  region: us-east-1
+  availability_zone: us-east-1b
+  require_chef_omnibus: true
+  subnet_id: subnet-1b5d5730
+#  iam_profile_name: chef-client
+  instance_type: t2.micro
+  associate_public_ip: true
+  interface: dns
+
+transport:
+   username: ec2-user
+   ssh_key: "/root/.ssh/ubuntu-chef"
+
+provisioner:
+  name: chef_solo
+  solo_rb:
+    node_name: openshift-redhat-72
+
+platforms:
+  - name: redhat-7.2
+    driver:
+      image_id: ami-2051294a
+    transport:
+      username: ec2-user
+
+suites:
+  - name: default
+    run_list: 
+      - recipe[nginx-chef::default]
+      - recipe[nginx-chef::create-dir]	
+      - recipe[nginx-chef::nginx-config]
+    attributes:
